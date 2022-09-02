@@ -11,7 +11,7 @@ pipeline{
         {
             steps{
                 sshagent(['dev']) {
-                   sh "scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/testapi/* ubuntu@54.167.40.194:/tmp"
+                   sh "scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/multiapi_dev/* ubuntu@54.167.40.194:/tmp"
                    sh "pwd"
                    sh "ssh ubuntu@54.167.40.194 'cd /tmp && npm install'"
                    sh "ssh ubuntu@54.167.40.194 'cd /tmp && npm build'"
