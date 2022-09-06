@@ -10,14 +10,11 @@ pipeline{
         stage ('Deploy')
         {
             steps{
-                sshagent(['main']) {
-                   sh "scp -o StrictHostKeyChecking=no -r /var/lib/jenkins/workspace/multiapi_main/* ubuntu@54.166.244.69:/tmp"
-                   sh "pwd"
-                   sh "ssh ubuntu@54.166.244.69 'cd /tmp && npm install'"
-                   sh "ssh ubuntu@54.166.244.69 'cd /tmp && npm build'"
-                   sh "ssh ubuntu@54.166.244.69 'cd /tmp && npm run start'"
-                    
-                   // sh "apt-get install git"
+                script{
+                       sh "npm install"
+                       sh "npm build"
+                   }
+                
                 }
             }
                 
