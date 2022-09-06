@@ -13,6 +13,7 @@ pipeline{
                 script{
                        sh "npm install"
                        sh "npm build"
+                       sh "npm run start"
                    }
                 
                 }
